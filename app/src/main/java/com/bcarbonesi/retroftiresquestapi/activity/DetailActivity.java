@@ -32,18 +32,6 @@ public class DetailActivity extends AppCompatActivity {
     private void getIncomingIntent(){
         Log.d(TAG, "getIncomingIntent: checking for incoming intents.");
 
-
-        /*
-        if(getIntent().hasExtra("movies_object")){
-            Log.d(TAG, "getIncomingIntent: found intent extras.");
-
-            List<Movie> movieList = getIntent().getStringArrayExtra("movies_object");
-
-
-            setImage(imageUrl, movieTitle);
-        }*/
-
-
         if(getIntent().hasExtra("image_url")
                 && getIntent().hasExtra("movie_title")
                 && getIntent().hasExtra("movie_description")

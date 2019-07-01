@@ -2,16 +2,19 @@ package com.bcarbonesi.retroftiresquestapi.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Transition;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -64,7 +67,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             moviesLayout = itemView.findViewById(R.id.movies_layout);
 
             movieImage = itemView.findViewById(R.id.movie_image);
-                movieImage.setTransitionName(String.valueOf(R.string.transition_name));
             movieTitle = itemView.findViewById(R.id.title);
             //data = itemView.findViewById(R.id.date);
             //movieDescription = itemView.findViewById(R.id.description);
@@ -97,9 +99,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         //movieViewHolder.movieDescription.setText(movies.get(i).getOverview());
         //movieViewHolder.rating.setText(movies.get(i).getVoteAverage().toString());
 
-        movieViewHolder.movieImage.setTransitionName("transitionName");
-
-        Log.d("transition name",movieViewHolder.movieImage.getTransitionName());
+        //Log.d("transition name",movieViewHolder.movieImage.getTransitionName());
 
         movieViewHolder.moviesLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +115,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
                 intent.putExtra("movie_description", movies.get(i).getOverview());
                 intent.putExtra("rating", movies.get(i).getVoteAverage().toString());
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
                 context.startActivity(intent);
             }
 
